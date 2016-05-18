@@ -1,11 +1,11 @@
 # XHTabBar
-* 快速创建自定义TabBar
+* 快速创建自定义TabBar - 支持小红点及自定义高度
 
 ## 效果
 ![image](https://raw.githubusercontent.com/CoderZhuXH/XHTabBar/master/DEMO.PNG)
 
 ## 使用方法
-## 1.在XHTabBar.m initData方法中初始化相关数据
+### 1.在XHTabBar.m initData方法中初始化相关数据
 ```objc
 -(void)initData
 {
@@ -21,23 +21,51 @@ self.classArr = @[@"MainVC",@"MsgVC",@"FriendVC",@"MeVC"];
 self.tabBarHeight = 49.0;
 }
 ```
-## 2.在Appdelegate 中调用
-* 2.1设置tabbar为根控制器
+### 2.在Appdelegate设置tabbar为根控制器
 ```objc
 XHTabBar *tabBar = [[XHTabBar alloc] init];
 self.window.rootViewController = tabBar;
 ```
-* 2.2设置数字角标
+### 3.角标及小红点设置,及其他操作
+
 ```objc
+
+
+/**
+*  影藏TabBar 调用系统方法
+*/
+
+.hidesBottomBarWhenPushed = YES;
+
+/**
+*  显示指定控制器
+*
+*  @param index 位置
+*/
+-(void)showControllerIndex:(NSInteger)index;
+
+/**
+*  数字角标
+*
+*  @param num   所要显示数字
+*  @param index 位置
+*/
 -(void)showBadgeMark:(NSInteger)badge index:(NSInteger)index;
-```
-* 2.3设置小红点
-```objc
+
+/**
+*  小红点
+*
+*  @param index 位置
+*/
 -(void)showPointMarkIndex:(NSInteger)index;
-```
-* 2.4不显示角标
-```objc
+
+/**
+*  影藏指定位置角标
+*
+*  @param index 位置
+*/
 -(void)hideMarkIndex:(NSInteger)index;
+
 ```
 
 ##  安装
