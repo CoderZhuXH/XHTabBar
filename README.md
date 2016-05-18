@@ -2,7 +2,7 @@
 * 快速创建自定义TabBar
 
 ## 效果
-![image](https://raw.githubusercontent.com/CoderZhuXH/XHTabBar/master/Demo%E6%95%88%E6%9E%9C%E5%9B%BE.png)
+![image](https://raw.githubusercontent.com/CoderZhuXH/XHTabBar/master/DEMO.PNG)
 
 ## 使用方法
 ## 1.在XHTabBar.m initData方法中初始化相关数据
