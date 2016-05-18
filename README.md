@@ -1,5 +1,5 @@
 # XHTabBar
-* 快速创建自定义TabBar - 支持小红点及自定义高度
+* 快速创建自定义TabBar - 支持小红点,数字角标及自定义高度
 
 ## 效果
 ![image](https://raw.githubusercontent.com/CoderZhuXH/XHTabBar/master/DEMO.PNG)
