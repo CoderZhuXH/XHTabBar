@@ -92,7 +92,7 @@ static const float scale=0.55;
     self.imageArr= @[@"home_tabbar",@"msg_tabbar",@"friend_tabbar",@"me_tabbar"];
     //选中图片数组
     self.selImageArr = @[@"home_tabbar_sel",@"msg_tabbar_sel",@"friend_tabbar_sel",@"me_tabbar_sel"];
-    //控制器数组
+    //控制器数组(不需要导入控制器头文件)
     self.classArr = @[@"MainVC",@"MsgVC",@"FriendVC",@"MeVC"];
     //tabBar高度
     self.tabBarHeight = 49.0;
