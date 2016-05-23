@@ -6,6 +6,7 @@
 
 ## 使用方法
 *   为了使外部代码更简洁,数据初始化放在TarBar内部`-(void)initData`方法里
+
 ### 1.在XHTabBar.m `-(voind)initData`方法中初始化相关数据
 ```objc
 -(void)initData
