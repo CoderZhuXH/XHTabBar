@@ -5,7 +5,8 @@
 ![image](https://raw.githubusercontent.com/CoderZhuXH/XHTabBar/master/DEMO.PNG)
 
 ## 使用方法
-*   为了使外部代码更简洁,数据初始化放在TarBar内部`-(void)initData`方法里
+
+*   为了使外部代码更简洁,数据初始化放在TarBar内部`-(void)initData`方法里<br>
 
 ### 1.在XHTabBar.m `-(voind)initData`方法中初始化相关数据
 ```objc
@@ -28,7 +29,8 @@ self.tabBarHeight = 49.0;
 XHTabBar *tabBar = [[XHTabBar alloc] init];
 self.window.rootViewController = tabBar;
 ```
-### 3.角标及小红点设置,及其他操作
+### 3.文字颜色,字体大小等请在XHTabBar.m 上面宏定义中修改
+### 4.角标及小红点设置,及其他操作
 
 ```objc
 
