@@ -1,11 +1,12 @@
-# XHTabBar
+﻿# XHTabBar
 * 快速创建自定义TabBar - 支持小红点,数字角标及自定义高度
 
 ## 效果
 ![image](https://raw.githubusercontent.com/CoderZhuXH/XHTabBar/master/DEMO.PNG)
 
 ## 使用方法
-### 1.在XHTabBar.m initData方法中初始化相关数据
+*   为了使外部代码更简洁,数据初始化放在TarBar内部`-(void)initData`方法里
+### 1.在XHTabBar.m `-(voind)initData`方法中初始化相关数据
 ```objc
 -(void)initData
 {
@@ -15,7 +16,7 @@ self.titleArr = @[@"首页",@"消息",@"朋友",@"我的"];
 self.imageArr= @[@"home_tabbar",@"msg_tabbar",@"friend_tabbar",@"me_tabbar"];
 //选中图片数组
 self.selImageArr = @[@"home_tabbar_sel",@"msg_tabbar_sel",@"friend_tabbar_sel",@"me_tabbar_sel"];
-//控制器数组
+//控制器数组(不需要导入控制器头文件)
 self.classArr = @[@"MainVC",@"MsgVC",@"FriendVC",@"MeVC"];
 //tabBar高度
 self.tabBarHeight = 49.0;
