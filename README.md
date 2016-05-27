@@ -86,4 +86,4 @@ self.window.rootViewController = tabBar;
 *   该项目最低支持 iOS 7.0 和 Xcode 7.0
 
 ##  许可证
-XHNetworking 使用 MIT 许可证，详情见 LICENSE 文件
+	XHTabBar 使用 MIT 许可证，详情见 LICENSE 文件
