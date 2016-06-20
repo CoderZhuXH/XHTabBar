@@ -87,6 +87,8 @@
 *   2.执行 pod install 或 pod update<br>
 *   3.导入 XHTabBar.h
 
+### 如果你发现你执行`pod install`后,导入的不是最新的,请删除`Podfile.lock`文件,在执行一次 `pod install` 
+
 ##  系统要求
 *   该项目最低支持 iOS 7.0 和 Xcode 7.0
 
