@@ -22,17 +22,30 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     
+    //控制器数组
+    NSArray *controllerArray = @[@"MainVC",@"MsgVC",@"FriendVC",@"MeVC"];
+    //title数组
+    NSArray * titleArray = @[@"首页",@"消息",@"朋友",@"我的"];
+    //默认图片数组
+    NSArray *imageArray= @[@"home_tabbar",@"msg_tabbar",@"friend_tabbar",@"me_tabbar"];
+    //选中图片数组
+    NSArray *selImageArray = @[@"home_tabbar_sel",@"msg_tabbar_sel",@"friend_tabbar_sel",@"me_tabbar_sel"];
+    //tabBar高度
+    CGFloat tabBarHeight = 49.0;
+    
+    //初始化(height:传nil 默认为49.0)
+    XHTabBar *tabbar = [[XHTabBar alloc] initWithControllerArray:controllerArray titleArray:titleArray imageArray:imageArray selImageArray:selImageArray height:tabBarHeight];
+
     //设置为根控制器
-    XHTabBar *tabbar = [[XHTabBar alloc] init];
     self.window.rootViewController = tabbar;
-    //设置数字角标
+    
+    //设置数字角标(可选)
     [tabbar showBadgeMark:100 index:1];
-    //设置小红点
+    //设置小红点(可选)
     [tabbar showPointMarkIndex:2];
-    //不显示角标
+    //不显示角标(可选)
     //[tabbar hideMarkIndex:3];
     
-
     [self.window makeKeyAndVisible];
     return YES;
 }

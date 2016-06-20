@@ -23,7 +23,7 @@
 #define PointMark_W_H 12
 
 
-//TabBarButton 中 图片与文字所占比
+//TabBarButton中 图片与文字上下所占比
 static const float scale=0.55;
 
 #pragma mark-@interface XHTabBarButton
@@ -67,11 +67,11 @@ static const float scale=0.55;
 @interface XHTabBar ()
 @property(nonatomic,strong)UIButton *seleBtn;
 @property(nonatomic,strong)UIView *tabBarView;
-@property(nonatomic,assign)NSInteger tabBarHeight;
-@property(nonatomic,strong)NSArray *titleArr;
-@property(nonatomic,strong)NSArray *imageArr;
-@property(nonatomic,strong)NSArray *selImageArr;
-@property(nonatomic,strong)NSArray *classArr;
+@property(nonatomic,assign)CGFloat tabBarHeight;
+@property(nonatomic,strong)NSArray *titleArray;
+@property(nonatomic,strong)NSArray *imageArray;
+@property(nonatomic,strong)NSArray *selImageArray;
+@property(nonatomic,strong)NSArray *controllerArray;
 @end
 @implementation XHTabBar
 - (instancetype)init
@@ -79,42 +79,60 @@ static const float scale=0.55;
     self = [super init];
     if (self) {
         
+        [self initData];
         [self initTabBar];
     }
     return self;
 }
-#pragma mark-初始化TabBar数据
+- (instancetype)initWithControllerArray:(NSArray *)controllerArray titleArray:(NSArray *)titleArray imageArray:(NSArray *)imageArray selImageArray:(NSArray *)selImageArray height:(CGFloat )height
+{
+    self = [super init];
+    if (self) {
+        
+        self.controllerArray =controllerArray;
+        self.titleArray = titleArray;
+        self.imageArray = imageArray;
+        self.selImageArray = selImageArray;
+        self.tabBarHeight = height;
+        
+        [self  initTabBar];
+        
+    }
+    return self;
+}
+/**
+ *  若想外部代码更简洁,可调alloc init 初始化tabbar : XHTabBar *tabbar = [[XHTabBar alloc] init];但必须在这里初始化相关数据,如下:
+ */
 -(void)initData
 {
-    //title数组
-    self.titleArr = @[@"首页",@"消息",@"朋友",@"我的"];
-    //默认图片数组
-    self.imageArr= @[@"home_tabbar",@"msg_tabbar",@"friend_tabbar",@"me_tabbar"];
-    //选中图片数组
-    self.selImageArr = @[@"home_tabbar_sel",@"msg_tabbar_sel",@"friend_tabbar_sel",@"me_tabbar_sel"];
+    /*
     //控制器数组(不需要导入控制器头文件)
-    self.classArr = @[@"MainVC",@"MsgVC",@"FriendVC",@"MeVC"];
+    self.controllerArray = @[@"MainVC",@"MsgVC",@"FriendVC",@"MeVC"];
+    //title数组
+    self.titleArray = @[@"首页",@"消息",@"朋友",@"我的"];
+    //默认图片数组
+    self.imageArray = @[@"home_tabbar",@"msg_tabbar",@"friend_tabbar",@"me_tabbar"];
+    //选中图片数组
+    self.selImageArray = @[@"home_tabbar_sel",@"msg_tabbar_sel",@"friend_tabbar_sel",@"me_tabbar_sel"];
     //tabBar高度
     self.tabBarHeight = 49.0;
-    
+     */
 }
 -(void)initTabBar{
     
-    //初始化数据
-    [self initData];
     //创建VC
-    [self createControllerByClassArray:self.classArr];
+    [self createControllerBycontrollerArrayay:self.controllerArray];
     //创建tabBarView
     [self createTabBarView];
     //设置TabbarLine
     [self setTabBarLine];
 }
 
--(void)createControllerByClassArray:(NSArray *)classArray
+-(void)createControllerBycontrollerArrayay:(NSArray *)controllerArrayay
 {
-    if(classArray.count==0) NSLog(@"控制器数组为nil,请初始化");
+    if(controllerArrayay.count==0) NSLog(@"控制器数组为nil,请初始化");
     NSMutableArray *tabBarArr = [[NSMutableArray alloc]init];
-    for (NSString *className in classArray) {
+    for (NSString *className in controllerArrayay) {
         Class class = NSClassFromString(className);
         UIViewController *viewcontroller = [[class alloc]init];
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:viewcontroller];
@@ -146,11 +164,11 @@ static const float scale=0.55;
     self.tabBarView = [[UIView alloc] initWithFrame:CGRectMake(0,49.0-self.tabBarHeight,[UIScreen mainScreen].bounds.size.width,self.tabBarHeight)];
     [self.tabBar addSubview:self.tabBarView];
     
-    if(self.selImageArr.count==0) NSLog(@"选中图片数组为nil,请初始化");
-    if(self.imageArr.count==0) NSLog(@"图片数组为nil,请初始化");
-    if(self.titleArr.count==0) NSLog(@"title数组为nil,请初始化");
+    if(self.selImageArray.count==0) NSLog(@"选中图片数组为nil,请初始化");
+    if(self.imageArray.count==0) NSLog(@"图片数组为nil,请初始化");
+    if(self.titleArray.count==0) NSLog(@"title数组为nil,请初始化");
         
-    int num = (int)self.classArr.count;
+    int num = (int)self.controllerArray.count;
     for(int i=0;i<num;i++)
     {
         XHTabBarButton *button = [[XHTabBarButton alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width/num*i, 0, [UIScreen mainScreen].bounds.size.width/num,self.tabBarHeight)];
@@ -163,9 +181,9 @@ static const float scale=0.55;
         
         button.titleLabel.font = [UIFont systemFontOfSize:TitleFontSize];
         button.backgroundColor = [UIColor whiteColor];
-        [button setImage:[UIImage imageNamed:self.imageArr[i]] forState:UIControlStateNormal];
-        [button setImage:[UIImage imageNamed:self.selImageArr[i]] forState:UIControlStateSelected];
-        [button setTitle:self.titleArr[i] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:self.imageArray[i]] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:self.selImageArray[i]] forState:UIControlStateSelected];
+        [button setTitle:self.titleArray[i] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
         [self.tabBarView  addSubview:button];
         if (i==0)

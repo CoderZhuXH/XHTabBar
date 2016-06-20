@@ -1,48 +1,40 @@
 ﻿# XHTabBar
-* 快速创建自定义TabBar - 支持小红点,数字角标及自定义高度
-
+#### 快速创建自定义TabBar,支持小红点,数字角标及自定义高度<br>
+###技术交流群(群号:537476189).
 ## 效果
 ![image](https://raw.githubusercontent.com/CoderZhuXH/XHTabBar/master/DEMO.PNG)
 
 ## 使用方法
-
-*   为了使外部代码更简洁,数据初始化放在TarBar内部`-(void)initData`方法里<br>
-
-### 1.在XHTabBar.m `-(voind)initData`方法中初始化相关数据
+### 1.在Appdelegate 中初始化,并设置为根控制器
 ```objc
--(void)initData
-{
-//title数组
-self.titleArr = @[@"首页",@"消息",@"朋友",@"我的"];
-//默认图片数组
-self.imageArr= @[@"home_tabbar",@"msg_tabbar",@"friend_tabbar",@"me_tabbar"];
-//选中图片数组
-self.selImageArr = @[@"home_tabbar_sel",@"msg_tabbar_sel",@"friend_tabbar_sel",@"me_tabbar_sel"];
-//控制器数组(不需要导入控制器头文件)
-self.classArr = @[@"MainVC",@"MsgVC",@"FriendVC",@"MeVC"];
-//tabBar高度
-self.tabBarHeight = 49.0;
-}
+    //控制器数组
+    NSArray *controllerArray = @[@"MainVC",@"MsgVC",@"FriendVC",@"MeVC"];
+    //title数组
+    NSArray * titleArray = @[@"首页",@"消息",@"朋友",@"我的"];
+    //默认图片数组
+    NSArray *imageArray= @[@"home_tabbar",@"msg_tabbar",@"friend_tabbar",@"me_tabbar"];
+    //选中图片数组
+    NSArray *selImageArray = @[@"home_tabbar_sel",@"msg_tabbar_sel",@"friend_tabbar_sel",@"me_tabbar_sel"];
+    //tabBar高度
+    CGFloat tabBarHeight = 49.0;
+    
+    //初始化(height:传nil 默认为49.0)
+    XHTabBar *tabbar = [[XHTabBar alloc] initWithControllerArray:controllerArray titleArray:titleArray imageArray:imageArray selImageArray:selImageArray height:tabBarHeight];
+
+    //设置为根控制器
+    self.window.rootViewController = tabbar;
 ```
-### 2.在Appdelegate设置tabbar为根控制器
+### 2.影藏tabBar
 ```objc
-XHTabBar *tabBar = [[XHTabBar alloc] init];
-self.window.rootViewController = tabBar;
+   //push界面时,若需影藏tabBar,调用系统方法设置影藏即可,如下
+    MsgVC *VC = [[MsgVC alloc] init];
+    VC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:VC animated:YES];
 ```
-### 3.文字颜色,字体大小等请在XHTabBar.m 上面宏定义中修改
-### 4.角标及小红点设置,及其他操作
-
+### 3.角标、小红点及其他设置接口
 ```objc
-
-
 /**
-*  影藏TabBar 调用系统方法
-*/
-
-.hidesBottomBarWhenPushed = YES;
-
-/**
-*  显示指定控制器
+*  设置tabBar显示指定控制器
 *
 *  @param index 位置
 */
@@ -69,9 +61,22 @@ self.window.rootViewController = tabBar;
 *  @param index 位置
 */
 -(void)hideMarkIndex:(NSInteger)index;
-
 ```
-
+### 4.定义tabbar文字大小,颜色,请在XHTabBar.m 顶部修改下面宏定义
+```objc
+//RGB颜色
+#define RGBCOLOR(r,g,b) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]
+//title默认颜色
+#define TitleColor   [UIColor grayColor]
+//title选中颜色
+#define TitleColor_Sel  RGBCOLOR(41, 167, 245)
+//title字体大小
+#define TitleFontSize 12.0
+//数字角标直径
+#define NumMark_W_H 20
+//小红点直径
+#define PointMark_W_H 12
+```
 ##  安装
 ### 手动添加:<br>
 *   1.将 XHTabBar 文件夹添加到工程目录中<br>
