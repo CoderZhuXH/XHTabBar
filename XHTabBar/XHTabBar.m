@@ -244,11 +244,11 @@ static const float scale=0.55;
     }
     else
     {
-        if(badge>0&badge<=9)
+        if(badge>0&&badge<=9)
         {
             nFrame.size.width = NumMark_W_H;
         }
-        else if (badge>9&badge<=19)
+        else if (badge>9&&badge<=19)
         {
             nFrame.size.width = NumMark_W_H+5;
         }
