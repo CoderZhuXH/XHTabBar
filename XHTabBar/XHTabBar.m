@@ -16,6 +16,8 @@
 #define TitleColor_Sel  RGBCOLOR(41, 167, 245)
 //title字体大小
 #define TitleFontSize 12.0
+//TabBar背景色
+#define TabBarBackgroundColor [UIColor whiteColor]
 
 //数字角标直径
 #define NumMark_W_H 20
@@ -40,6 +42,7 @@ static const float scale=0.55;
         
         self.imageView.contentMode = UIViewContentModeScaleAspectFit;
         self.titleLabel.textAlignment = NSTextAlignmentCenter;
+        self.backgroundColor = TabBarBackgroundColor;
     }
     
     return self;
@@ -180,7 +183,6 @@ static const float scale=0.55;
         [button setTitleColor:TitleColor_Sel forState:UIControlStateSelected];
         
         button.titleLabel.font = [UIFont systemFontOfSize:TitleFontSize];
-        button.backgroundColor = [UIColor whiteColor];
         [button setImage:[UIImage imageNamed:self.imageArray[i]] forState:UIControlStateNormal];
         [button setImage:[UIImage imageNamed:self.selImageArray[i]] forState:UIControlStateSelected];
         [button setTitle:self.titleArray[i] forState:UIControlStateNormal];

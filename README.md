@@ -72,6 +72,9 @@
 #define TitleColor_Sel  RGBCOLOR(41, 167, 245)
 //title字体大小
 #define TitleFontSize 12.0
+//TabBar背景色
+#define TabBarBackgroundColor [UIColor whiteColor]
+
 //数字角标直径
 #define NumMark_W_H 20
 //小红点直径
