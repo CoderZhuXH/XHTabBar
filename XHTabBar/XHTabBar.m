@@ -160,10 +160,6 @@ static const float scale=0.55;
 {
     if(!self.tabBarHeight) self.tabBarHeight=49.0;
     
-    for(UIView *view in self.tabBar.subviews)
-    {
-        [view removeFromSuperview];
-    }
     self.tabBarView = [[UIView alloc] initWithFrame:CGRectMake(0,49.0-self.tabBarHeight,[UIScreen mainScreen].bounds.size.width,self.tabBarHeight)];
     [self.tabBar addSubview:self.tabBarView];
     
