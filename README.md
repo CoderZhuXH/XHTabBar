@@ -1,5 +1,6 @@
 ﻿# XHTabBar
 #### 快速创建自定义TabBar,支持小红点,数字角标及自定义高度<br>
+####[OC版请戳这里>>>](https://github.com/CoderZhuXH/XHTabBarSwift)
 ###技术交流群(群号:537476189).
 ## 效果
 ![image](https://raw.githubusercontent.com/CoderZhuXH/XHTabBar/master/DEMO.PNG)
