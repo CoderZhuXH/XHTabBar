@@ -158,7 +158,7 @@ static const float scale=0.55;
 }
 -(void)createTabBarView
 {
-    if(!self.tabBarHeight) self.tabBarHeight=49.0;
+    if(!self.tabBarHeight||self.tabBarHeight<49.0) self.tabBarHeight=49.0;
     
     self.tabBarView = [[UIView alloc] initWithFrame:CGRectMake(0,49.0-self.tabBarHeight,[UIScreen mainScreen].bounds.size.width,self.tabBarHeight)];
     [self.tabBar addSubview:self.tabBarView];
@@ -218,6 +218,12 @@ static const float scale=0.55;
  */
 -(void)showControllerIndex:(NSInteger)index
 {
+    if(index >= self.controllerArray.count)
+    {
+        NSLog(@"index取值超出范围");
+        return;
+    }
+    
     self.seleBtn.selected = NO;
     UIButton *button = (UIButton *)[self.tabBarView viewWithTag:1000+index];
     button.selected = YES;
@@ -232,6 +238,12 @@ static const float scale=0.55;
  */
 -(void)showBadgeMark:(NSInteger)badge index:(NSInteger)index
 {
+    if(index >= self.controllerArray.count)
+    {
+        NSLog(@"index取值超出范围");
+        return;
+    }
+    
     UILabel *numLabel = (UILabel *)[self.tabBarView viewWithTag:1010+index];
     numLabel.hidden=NO;
     CGRect nFrame = numLabel.frame;
@@ -272,6 +284,11 @@ static const float scale=0.55;
  */
 -(void)showPointMarkIndex:(NSInteger)index
 {
+    if(index >= self.controllerArray.count)
+    {
+        NSLog(@"index取值超出范围");
+        return;
+    }
     UILabel *numLabel = (UILabel *)[self.tabBarView viewWithTag:1010+index];
     numLabel.hidden=NO;
     CGRect nFrame = numLabel.frame;
@@ -289,6 +306,12 @@ static const float scale=0.55;
  */
 -(void)hideMarkIndex:(NSInteger)index
 {
+    if(index >= self.controllerArray.count)
+    {
+        NSLog(@"index取值超出范围");
+        return;
+    }
+    
     UILabel *numLabel = (UILabel *)[self.tabBarView viewWithTag:1010+index];
     numLabel.hidden = YES;
 }

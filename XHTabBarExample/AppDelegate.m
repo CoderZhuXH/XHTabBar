@@ -33,7 +33,7 @@
     //tabBar高度
     CGFloat tabBarHeight = 49.0;
     
-    //初始化(height:传nil 默认为49.0)
+    //初始化(height:传nil或<49.0均按49.0处理)
     XHTabBar *tabbar = [[XHTabBar alloc] initWithControllerArray:controllerArray titleArray:titleArray imageArray:imageArray selImageArray:selImageArray height:tabBarHeight];
 
     //设置为根控制器

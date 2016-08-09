@@ -22,7 +22,7 @@
  *  @param titleArray      标题数组
  *  @param imageArray      图片数组
  *  @param selImageArray   选中图片数组
- *  @param height          tabBar 高度(传nil,默认49)
+ *  @param height          tabBar 高度(传nil或<49.0均按49.0处理))
  *
  *  @return self
  */
