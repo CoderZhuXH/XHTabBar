@@ -1,6 +1,6 @@
 ﻿# XHTabBar
 #### 快速创建自定义TabBar,支持小红点,数字角标及自定义高度<br>
-####[Swift版请戳这里>>>](https://github.com/CoderZhuXH/XHTabBarSwift)
+#### Swift版请戳这里>>>  https://github.com/CoderZhuXH/XHTabBarSwift
 ###技术交流群(群号:537476189).
 ## 效果
 ![image](https://raw.githubusercontent.com/CoderZhuXH/XHTabBar/master/DEMO.PNG)
@@ -91,7 +91,9 @@
 *   2.执行 pod install 或 pod update<br>
 *   3.导入 XHTabBar.h
 
-### 如果你发现你执行`pod install`后,导入的不是最新的,请删除`Podfile.lock`文件,在执行一次 `pod install` 
+### Tips
+*   1.如果发现pod search XHTabBar 搜索出来的不是最新版本，需要在终端执行cd desktop退回到desktop，然后执行pod setup命令更新本地spec缓存（需要几分钟），然后再搜索就可以了
+*   2.如果你发现你执行pod install后,导入的不是最新版本,请删除Podfile.lock文件,在执行一次 pod install
 
 ##  系统要求
 *   该项目最低支持 iOS 7.0 和 Xcode 7.0
