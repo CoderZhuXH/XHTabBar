@@ -16,12 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-     self.navigationItem.title = @"消息";
-    
+    self.navigationItem.title = @"消息";
     self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
-    
-    //显示未读消息数
-    
+        
     // Do any additional setup after loading the view.
 }
 

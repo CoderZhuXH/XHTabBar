@@ -1,5 +1,15 @@
-﻿# XHTabBar
+# XHTabBar
 #### 快速创建自定义TabBar,支持小红点,数字角标及自定义高度<br>
+
+[![AppVeyor](https://img.shields.io/appveyor/ci/gruntjs/grunt.svg?maxAge=2592000)](https://github.com/CoderZhuXH/XHTabBar)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/CoderZhuXH/XHTabBar)
+[![Version Status](https://img.shields.io/cocoapods/v/XHTabBar.svg?style=flat)](http://cocoadocs.org/docsets/XHTabBar)
+[![Support](https://img.shields.io/badge/support-iOS%207%2B-brightgreen.svg)](https://github.com/CoderZhuXH/XHTabBar)
+[![Pod Platform](https://img.shields.io/cocoapods/p/XHTabBar.svg?style=flat)](http://cocoadocs.org/docsets/XHTabBar)
+[![Pod License](https://img.shields.io/cocoapods/l/XHTabBar.svg?style=flat)](https://github.com/CoderZhuXH/XHTabBar/blob/master/LICENSE)
+
+==============
+
 #### Swift版请戳这里>>>  https://github.com/CoderZhuXH/XHTabBarSwift
 ###技术交流群(群号:537476189).
 ## 效果

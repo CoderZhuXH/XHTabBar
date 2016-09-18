@@ -16,8 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-     self.navigationItem.title = @"首页";
+    self.navigationItem.title = @"首页";
      self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
     
     [self initUI];

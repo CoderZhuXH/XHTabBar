@@ -166,7 +166,7 @@ static const float scale=0.55;
     if(self.selImageArray.count==0) NSLog(@"选中图片数组为nil,请初始化");
     if(self.imageArray.count==0) NSLog(@"图片数组为nil,请初始化");
     if(self.titleArray.count==0) NSLog(@"title数组为nil,请初始化");
-        
+
     int num = (int)self.controllerArray.count;
     for(int i=0;i<num;i++)
     {
