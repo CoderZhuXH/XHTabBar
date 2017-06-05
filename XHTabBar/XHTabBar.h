@@ -13,7 +13,24 @@
 
 @end
 
+@class XHTabBar;
+@protocol XHTabBarDelegate <NSObject>
+@optional
+
+/**
+ tabBar 点击事件回调
+
+ @param tabBar   tabBar
+ @param viewController 选中的viewController
+ */
+-(void)xhTabBar:(XHTabBar *)tabBar didSelectViewController:(UIViewController *)viewController;
+
+@end
+
 @interface XHTabBar : UITabBarController
+
+@property(nonatomic,assign) id<XHTabBarDelegate>xhTabBarDelegate;
+
 
 /**
  *  初始化

@@ -161,6 +161,8 @@ static const float scale=0.55;
     if(!self.tabBarHeight||self.tabBarHeight<49.0) self.tabBarHeight=49.0;
     
     self.tabBarView = [[UIView alloc] initWithFrame:CGRectMake(0,49.0-self.tabBarHeight,[UIScreen mainScreen].bounds.size.width,self.tabBarHeight)];
+    
+    
     [self.tabBar addSubview:self.tabBarView];
     
     if(self.selImageArray.count==0) NSLog(@"选中图片数组为nil,请初始化");
@@ -208,7 +210,6 @@ static const float scale=0.55;
     NSInteger index = button.tag-1000;
     
     [self showControllerIndex:index];
-    
 }
 
 /**
@@ -229,6 +230,11 @@ static const float scale=0.55;
     button.selected = YES;
     self.seleBtn = button;
     self.selectedIndex=index;
+    
+    if([self.xhTabBarDelegate respondsToSelector:@selector(xhTabBar:didSelectViewController:)])
+    {
+        [self.xhTabBarDelegate xhTabBar:self didSelectViewController:self.viewControllers[index]];
+    }
 }
 /**
  *  数字角标

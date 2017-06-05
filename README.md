@@ -35,14 +35,27 @@
     //设置为根控制器
     self.window.rootViewController = tabbar;
 ```
-### 2.影藏tabBar
+### 2.点击代理
+```objc
+
+/**
+ tabBar 点击事件回调
+
+ @param tabBar   tabBar
+ @param viewController 选中的viewController
+ */
+-(void)xhTabBar:(XHTabBar *)tabBar didSelectViewController:(UIViewController *)viewController;
+
+```
+
+### 3.影藏tabBar
 ```objc
    //push界面时,若需影藏tabBar,调用系统方法设置影藏即可,如下
     MsgVC *VC = [[MsgVC alloc] init];
     VC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:VC animated:YES];
 ```
-### 3.角标、小红点及其他设置接口
+### 4.角标、小红点及其他设置接口
 ```objc
 /**
 *  设置tabBar显示指定控制器
@@ -73,7 +86,7 @@
 */
 -(void)hideMarkIndex:(NSInteger)index;
 ```
-### 4.定义tabbar文字大小,颜色,请在XHTabBar.m 顶部修改下面宏定义
+### 5.定义tabbar文字大小,颜色,请在XHTabBar.m 顶部修改下面宏定义
 ```objc
 //RGB颜色
 #define RGBCOLOR(r,g,b) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]
